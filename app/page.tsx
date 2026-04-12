@@ -1,6 +1,12 @@
 "use client";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import StorySection from "@/components/StorySection";
+import Footer from "@/components/Footer";
+import ProductGrid from "@/components/ProductGrid";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
+
 // import Hero from "@/components/Hero";
 // import StorySection from "@/components/StorySection";
 // import ProductGrid from "@/components/ProductGrid";
@@ -50,11 +56,19 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      {/* <Hero /> */}
-      {/* <StorySection /> */}
-      {/* <ProductGrid /> */}
+      <Hero />
+      <div id="explore-section">
+        <StorySection
+          title="Fragrance"
+          description="Premium fragrance compounds that evoke emotion and create unforgettable sensory experiences."
+          image="/images/fragrance.jpg"
+        />
+      </div>
+      <ProductGrid />
+      <WhatsAppFloat />
+
       {/* etc... */}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

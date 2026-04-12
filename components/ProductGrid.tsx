@@ -9,7 +9,7 @@ const products = [
     title: "Fragrance",
     description:
       "Premium fragrance compounds for personal care, home care and fine fragrances.",
-    image: "/images/fragrance.jpg",
+    image: "/images/fragrance1.jpg",
   },
   {
     title: "Flavour",

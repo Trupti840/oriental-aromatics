@@ -8,7 +8,7 @@ const Hero = () => {
       {/* Background Image (replace later with video if needed) */}
       <div className="absolute inset-0">
         <img
-          src="/public/images/hero.jpg"
+          src="/images/hero.jpg"
           alt="hero"
           className="w-full h-full object-cover"
         />
@@ -31,7 +31,13 @@ const Hero = () => {
             emotions and elevate everyday experiences.
           </p>
 
-          <button className="mt-8 px-8 py-4 bg-oriental-gold text-black font-semibold rounded-full hover:scale-105 transition-all">
+          <button
+            onClick={() => {
+              const section = document.getElementById("explore-section");
+              section?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="mt-8 px-8 py-4 bg-oriental-gold text-black font-semibold rounded-full hover:scale-105 transition-all"
+          >
             Explore More
           </button>
         </motion.div>
