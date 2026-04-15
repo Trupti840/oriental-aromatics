@@ -5,16 +5,16 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Oriental Aromatics - Creators of Fragrance & Flavour",
+  title: "SG Fragrance House",
   description:
     "Leading manufacturer of aroma chemicals, fragrances, flavours and camphor products.",
   keywords:
     "aroma chemicals, fragrances, flavours, camphor, oriental aromatics",
   openGraph: {
-    title: "Oriental Aromatics",
+    title: "SG Fragrance House",
     description: "Experience the essence of aroma and flavour",
     images: "/images/hero-bg.jpg",
-    siteName: "Oriental Aromatics",
+    siteName: "SG Fragrance House",
   },
 };
 

@@ -57,10 +57,10 @@ export default function Home() {
     <div>
       <Navbar />
       <Hero />
-      <div id="explore-section">
+      <div id="explore-section1">
         <StorySection
           title="Fragrance"
-          description="Premium fragrance compounds that evoke emotion and create unforgettable sensory experiences."
+          description="Crafted to inspire emotion and elevate everyday experiences, our premium fragrance compounds combine innovation with artistry to deliver long-lasting, memorable scents."
           image="/images/fragrance.jpg"
         />
       </div>

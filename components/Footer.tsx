@@ -9,10 +9,10 @@ const Footer = () => {
         <div className="md:col-span-2">
           <div className="flex items-center space-x-3 mb-6">
             <div className="w-12 h-12 bg-oriental-gold rounded-full flex items-center justify-center">
-              <span className="text-oriental-dark font-bold text-lg">OA</span>
+              <span className="text-oriental-dark font-bold text-lg">SG</span>
             </div>
             <h3 className="text-2xl font-display font-bold">
-              Oriental Aromatics
+              SG FRAGRANCE HOUSE
             </h3>
           </div>
           <p className="text-gray-300 leading-relaxed mb-8 max-w-md">
