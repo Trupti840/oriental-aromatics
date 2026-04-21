@@ -5,27 +5,27 @@ import useEmblaCarousel from "embla-carousel-react";
 
 const products = [
   {
-    title: "Fragrance",
+    title: "Fine Fragrances",
     description:
-      "Premium fragrance compounds for personal care, home care and fine fragrances.",
-    image: "/images/fragrance1.jpg",
+      "Our fine fragrances embody the art of perfumery—crafted for elegance, lasting performance, and unforgettable impressions.",
+    image: "/images/fine_fragrances.jpg",
   },
   {
-    title: "Flavour",
+    title: "Air Care",
     description:
-      "Natural and synthetic flavours for food and beverage applications.",
+      "Air care fragrances that transform spaces and elevate everyday ambiance.",
     image: "/images/flavour.jpg",
   },
   {
-    title: "Aroma Chemicals",
+    title: "Personal Care",
     description:
-      "High purity aroma chemicals manufactured to global standards.",
+      "Delicately crafted fragrances for skin, hair, and body—offering gentle care with a subtle, refined touch.",
     image: "/images/aroma-chemicals.jpg",
   },
   {
-    title: "Camphor",
+    title: "Home Care",
     description:
-      "Synthetic and natural camphor for pharmaceutical and industrial use.",
+      "Practical yet delightful, our home care fragrances transform everyday cleaning and care into refreshing sensory experiences.",
     image: "/images/camphor.jpg",
   },
 ];

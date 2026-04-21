@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image"; // if you're using Next.js
+import Image from "next/image";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 40);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -18,28 +18,37 @@ const Navbar = () => {
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-md py-4" : "bg-transparent py-6"
+        scrolled
+          ? "bg-white/90 backdrop-blur-md shadow-sm py-3"
+          : "bg-transparent py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div className="w-full px-6 md:px-12 lg:px-20 flex justify-between items-center">
         
-        {/* Logo + Title */}
+        {/* Logo + Brand */}
         <div className="flex items-center space-x-3">
-          <Image
-  src="/images/logo.png"  // correct path
-  alt="Logo"
-  width={40}
-  height={40}
-/>
-          <h1 className="text-xl font-bold">SG FRAGRANCE HOUSE</h1>
+          <img
+            src="/images/logo.png"
+            alt="logo"
+            className="w-10 h-10 object-contain contrast-125"
+          />
+
+          <h1 className="text-sm md:text-base font-semibold tracking-widest text-black">
+            SG FRAGRANCE HOUSE
+          </h1>
         </div>
 
         {/* Navigation */}
-        <nav className="hidden md:flex space-x-8">
-          <a href="#" className="hover:text-oriental-gold">Home</a>
-          <a href="#" className="hover:text-oriental-gold">About</a>
-          <a href="#" className="hover:text-oriental-gold">Products</a>
-          <a href="#" className="hover:text-oriental-gold">Contact</a>
+        <nav className="hidden md:flex space-x-10">
+          {["Home", "About", "Products", "Contact"].map((item) => (
+            <a
+              key={item}
+              href="#"
+              className="text-sm tracking-wide text-black hover:text-green-700 transition-colors duration-300"
+            >
+              {item}
+            </a>
+          ))}
         </nav>
       </div>
     </header>

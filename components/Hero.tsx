@@ -5,41 +5,48 @@ import { motion } from "framer-motion";
 const Hero = () => {
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Background Image (replace later with video if needed) */}
+      {/* Background */}
       <div className="absolute inset-0">
         <img
           src="/images/hero.jpg"
-          alt="hero"
+          alt="Luxury fragrance"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/50" />
+        {/* Light Overlay */}
+        <div className="absolute inset-0 bg-white/25"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex items-center justify-center h-full text-center px-6">
+      <div className="relative z-10 flex items-center h-full px-6 md:px-12 lg:px-24">
         <motion.div
+          className="text-center ml-20"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl text-white font-display font-bold leading-tight">
+          {/* Heading */}
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-black leading-tight text-center">
             Crafting Sensory <br /> Experiences
           </h1>
 
-          <p className="mt-6 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
+          {/* Short Description */}
+          <p className="mt-5 text-lg text-gray-700 leading-relaxed text-center">
             Fragrances, flavours, and aroma chemicals designed to inspire
-            emotions and elevate everyday experiences.
+            <br/>emotions and elevate everyday experiences.
           </p>
 
-          <button
-            onClick={() => {
-              const section = document.getElementById("explore-section");
-              section?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="mt-8 px-8 py-4 bg-oriental-gold text-black font-semibold rounded-full hover:scale-105 transition-all"
-          >
-            Explore More
-          </button>
+          {/* Centered Button */}
+          <div className="mt-8">
+            <button
+              onClick={() => {
+                const section = document.getElementById("explore-section");
+                section?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="px-8 py-3 bg-green-700 text-white rounded-full shadow-md hover:bg-green-800 hover:scale-105 transition-all duration-300"
+            >
+              Explore Collection
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>
