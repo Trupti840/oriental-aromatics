@@ -26,7 +26,7 @@ const products = [
     title: "Home Care",
     description:
       "Practical yet delightful, our home care fragrances transform everyday cleaning and care into refreshing sensory experiences.",
-    image: "/images/homecare1.jpg",
+    image: "/images/homecare.jpg",
   },
 ];
 
