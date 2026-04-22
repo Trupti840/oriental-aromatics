@@ -46,7 +46,7 @@ const Footer = () => {
           <h4 className="text-xl font-semibold">Contact Us</h4>
           <div className="flex items-center space-x-4 p-4 bg-white/10 rounded-2xl">
             <Mail className="w-6 h-6" />
-            <span className="text-lg">info@orientalaromatics.com</span>
+            <span className="text-lg">sgfragrance@hotmail.com</span>
           </div>
         </div>
       </div>

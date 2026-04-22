@@ -14,19 +14,19 @@ const products = [
     title: "Air Care",
     description:
       "Air care fragrances that transform spaces and elevate everyday ambiance.",
-    image: "/images/flavour.jpg",
+    image: "/images/aircare.jpg",
   },
   {
     title: "Personal Care",
     description:
       "Delicately crafted fragrances for skin, hair, and body—offering gentle care with a subtle, refined touch.",
-    image: "/images/aroma-chemicals.jpg",
+    image: "/images/personalcare.jpg",
   },
   {
     title: "Home Care",
     description:
       "Practical yet delightful, our home care fragrances transform everyday cleaning and care into refreshing sensory experiences.",
-    image: "/images/camphor.jpg",
+    image: "/images/homecare1.jpg",
   },
 ];
 
