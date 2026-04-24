@@ -27,7 +27,7 @@ export default function WhatsAppFloat() {
       {/* CHAT BOX */}
       {open && (
         <div className="fixed bottom-24 right-6 w-80 bg-white rounded-xl shadow-xl p-4 z-50 animate-fadeIn">
-          <p className="text-gray-800 font-medium mb-3">👋 Chat with Aromas</p>
+          <p className="text-gray-800 font-medium mb-3">👋 Chat with SG Fragrance</p>
 
           <button
             onClick={() => window.open(whatsappUrl, "_blank")}

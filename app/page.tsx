@@ -59,8 +59,8 @@ export default function Home() {
       <Hero />
       <div id="explore-section1">
         <StorySection
-          title="Fragrance"
-          description="Crafted to inspire emotion and elevate everyday experiences, our premium fragrance compounds combine innovation with artistry to deliver long-lasting, memorable scents."
+          title="What We Do"
+          description="At SG Fragrance House, we manufacture a wide range of premium fragrance concentrates tailored for diverse industries. Our offerings include fine perfume concentrates, attars and perfume oils, fragrances for cosmetics and personal care products, industrial fragrances for soaps, detergents, and cleaning solutions, as well as home fragrance products such as candles, diffusers, and air fresheners. We also specialize in custom fragrance development, helping brands create unique signature scents that truly stand out in the market."
           image="/images/fragrance.jpg"
         />
       </div>
