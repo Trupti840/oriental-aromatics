@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -40,15 +41,21 @@ const Navbar = () => {
 
         {/* Navigation */}
         <nav className="hidden md:flex space-x-10">
-          {["Home", "About", "Products", "Contact"].map((item) => (
-            <a
-              key={item}
-              href="#"
-              className="text-sm tracking-wide text-black hover:text-green-700 transition-colors duration-300"
-            >
-              {item}
-            </a>
-          ))}
+           <Link href="/" className="text-sm text-black hover:text-green-700">
+             Home
+           </Link>
+ 
+           <Link href="/about" className="text-sm text-black hover:text-green-700">
+             About
+           </Link>
+ 
+           <Link href="/#explore-section" className="text-sm text-black hover:text-green-700">
+             Products
+           </Link>
+ 
+           <Link href="/#contact" className="text-sm text-black hover:text-green-700">
+             Contact
+           </Link>
         </nav>
       </div>
     </header>

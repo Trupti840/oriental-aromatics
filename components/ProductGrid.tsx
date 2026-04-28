@@ -136,7 +136,7 @@ const ProductSlider = () => {
             <div key={i} className="flex flex-col items-center group">
 
               {/* Icon Circle */}
-              <div className="w-16 h-16 flex items-center justify-center rounded-full border-2 border-gray-300 group-hover:bg-black group-hover:text-white transition duration-300 mb-4">
+              <div className="w-16 h-16 flex items-center justify-center rounded-full border-2 border-gray-300 group-hover:bg-green-600 group-hover:text-white transition duration-300 mb-4">
                 <div className="text-gray-700 group-hover:text-white transition duration-300 group-hover:scale-110">
                   {item.icon}
                 </div>
