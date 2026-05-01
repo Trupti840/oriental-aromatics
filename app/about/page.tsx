@@ -137,6 +137,7 @@
            whileHover={{ scale: 1.1 }}
            whileTap={{ scale: 0.95 }}
            className="mt-8 px-8 py-4 bg-green-600 text-black rounded-full"
+           onClick={() => window.location.href = '/contact'}
          >
            Contact Us
          </motion.button>

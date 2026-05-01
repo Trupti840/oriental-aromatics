@@ -52,7 +52,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/#explore-section"
+            href="/products"
             className="text-sm text-black hover:text-green-700"
           >
             Products
