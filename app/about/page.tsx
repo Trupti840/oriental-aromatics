@@ -1,7 +1,7 @@
 "use client";
  import Navbar from "@/components/Navbar";
  import Footer from "@/components/Footer";
- import FeaturesSection from "@/components/FeaturesSection";
+//  import FeaturesSection from "@/components/FeaturesSection";
  import { motion, useScroll, useTransform } from "framer-motion";
  import { useRef } from "react";
  import Image from "next/image";
