@@ -25,7 +25,6 @@ const Navbar = () => {
       }`}
     >
       <div className="w-full px-6 md:px-12 lg:px-20 flex justify-between items-center">
-        
         {/* Logo + Brand */}
         <div className="flex items-center space-x-3">
           <img
@@ -41,21 +40,30 @@ const Navbar = () => {
 
         {/* Navigation */}
         <nav className="hidden md:flex space-x-10">
-           <Link href="/" className="text-sm text-black hover:text-green-700">
-             Home
-           </Link>
- 
-           <Link href="/about" className="text-sm text-black hover:text-green-700">
-             About
-           </Link>
- 
-           <Link href="/#explore-section" className="text-sm text-black hover:text-green-700">
-             Products
-           </Link>
- 
-           <Link href="/#contact" className="text-sm text-black hover:text-green-700">
-             Contact
-           </Link>
+          <Link href="/" className="text-sm text-black hover:text-green-700">
+            Home
+          </Link>
+
+          <Link
+            href="/about"
+            className="text-sm text-black hover:text-green-700"
+          >
+            About
+          </Link>
+
+          <Link
+            href="/#explore-section"
+            className="text-sm text-black hover:text-green-700"
+          >
+            Products
+          </Link>
+
+          <Link
+            href="/contact"
+            className="text-sm text-black hover:text-green-700"
+          >
+            Contact
+          </Link>
         </nav>
       </div>
     </header>
