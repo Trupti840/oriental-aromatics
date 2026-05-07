@@ -2,31 +2,36 @@
 import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
+import Link from "next/link";
 
 const products = [
   {
     title: "Fine Fragrances",
     description:
       "Our fine fragrances embody the art of perfumery—crafted for elegance, lasting performance, and unforgettable impressions.",
-    image: "/images/fine_fragrances.jpg",
+    image: "/images/products/frangrance_product.png",
+    slug: "fine-fragrances",
   },
   {
     title: "Air Care",
     description:
       "Air care fragrances that transform spaces and elevate everyday ambiance.",
     image: "/images/aircare.jpg",
+    slug: "air-care",
   },
   {
     title: "Personal Care",
     description:
       "Delicately crafted fragrances for skin, hair, and body—offering gentle care with a subtle, refined touch.",
     image: "/images/personalcare.jpg",
+    slug: "personal-care",
   },
   {
     title: "Home Care",
     description:
       "Practical yet delightful, our home care fragrances transform everyday cleaning and care into refreshing sensory experiences.",
     image: "/images/homecare.jpg",
+    slug: "home-care",
   },
 ];
 
@@ -106,23 +111,31 @@ const ProductSlider = () => {
               className="flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%]"
             >
               <div className="px-3 sm:p-3">
-                <div className="h-[300px] md:h-[380px] relative rounded-3xl overflow-hidden shadow-xl group">
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/40" />
-                  <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <h3 className="text-lg md:text-xl font-bold">
-                      {product.title}
-                    </h3>
-                    <p className="text-sm mt-2 opacity-80">
-                      {product.description}
-                    </p>
+
+                <Link href={`/products?section=${product.slug}`}>
+                  <div className="h-[300px] md:h-[380px] relative rounded-3xl overflow-hidden shadow-xl group cursor-pointer hover:scale-105 transition">
+
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition duration-500"
+                    />
+
+                    <div className="absolute inset-0 bg-black/40" />
+
+                    <div className="absolute bottom-6 left-6 right-6 text-white">
+                      <h3 className="text-lg md:text-xl font-bold">
+                        {product.title}
+                      </h3>
+                      <p className="text-sm mt-2 opacity-80">
+                        {product.description}
+                      </p>
+                    </div>
+
                   </div>
-                </div>
+                </Link>
+
               </div>
             </div>
           ))}

@@ -1,10 +1,37 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Linkedin,
+} from "lucide-react";
+
+const productLinks = [
+  {
+    title: "Fine Fragrances",
+    slug: "fine-fragrances",
+  },
+  {
+    title: "Air Care",
+    slug: "air-care",
+  },
+  {
+    title: "Personal Care",
+    slug: "personal-care",
+  },
+  {
+    title: "Home Care",
+    slug: "home-care",
+  },
+];
 
 const Footer = () => {
   return (
     <footer className="bg-white text-black border-t border-[#e5e5e5] pt-10 pb-0 px-4 md:px-8 lg:px-16">
       <div className="w-full pl-0 pr-[20px] md:pr-[40px] grid md:grid-cols-4 gap-8">
+        
         {/* Brand */}
         <div>
           <div className="flex items-center space-x-3 mb-4">
@@ -13,7 +40,10 @@ const Footer = () => {
                 SG
               </span>
             </div>
-            <h3 className="text-lg font-bold">SG FRAGRANCE HOUSE</h3>
+
+            <h3 className="text-lg font-bold">
+              SG FRAGRANCE HOUSE
+            </h3>
           </div>
 
           <p className="text-gray-600 text-sm leading-relaxed mb-4">
@@ -39,12 +69,17 @@ const Footer = () => {
           <h4 className="text-base font-semibold mb-3 text-green-700">
             Quick Links
           </h4>
+
           <ul className="space-y-2 text-gray-600 text-sm">
             <li>
-              <Link href="/" className="hover:text-green-700 transition-colors">
+              <Link
+                href="/"
+                className="hover:text-green-700 transition-colors"
+              >
                 Home
               </Link>
             </li>
+
             <li>
               <Link
                 href="/about"
@@ -53,6 +88,7 @@ const Footer = () => {
                 About Us
               </Link>
             </li>
+
             <li>
               <Link
                 href="/#explore-section"
@@ -61,6 +97,7 @@ const Footer = () => {
                 Products
               </Link>
             </li>
+
             <li>
               <Link
                 href="/contact"
@@ -69,15 +106,13 @@ const Footer = () => {
                 Contact
               </Link>
             </li>
-            <li>
-              <Link href="/privacy-policy" className="hover:text-green-700">
-                Privacy Policy
-              </Link>
-            </li>
 
             <li>
-              <Link href="/terms" className="hover:text-green-700">
-                Terms & Conditions
+              <Link
+                href="/faq"
+                className="hover:text-green-700 transition-colors"
+              >
+                FAQ
               </Link>
             </li>
           </ul>
@@ -88,27 +123,18 @@ const Footer = () => {
           <h4 className="text-base font-semibold mb-3 text-green-700">
             Our Products
           </h4>
+
           <ul className="space-y-2 text-gray-600 text-sm">
-            <li>
-              <Link href="#" className="hover:text-green-700 transition-colors">
-                Fine Fragrances
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className="hover:text-green-700 transition-colors">
-                Air Care
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className="hover:text-green-700 transition-colors">
-                Personal Care
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className="hover:text-green-700 transition-colors">
-                Home Care
-              </Link>
-            </li>
+            {productLinks.map((product, i) => (
+              <li key={i}>
+                <Link
+                  href={`/products?section=${product.slug}`}
+                  className="hover:text-green-700 transition-colors"
+                >
+                  {product.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -121,19 +147,25 @@ const Footer = () => {
           <div className="space-y-3 text-gray-600 text-sm">
             <div className="flex items-start space-x-2 transition-colors">
               <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
+
               <span className="hover:text-green-700">
-                381/A NARROTTAM WADI, ROOM N: 14-A, 1ST FLOOR KALBADEVI ROAD,
-                MUMBAI-400002, MAHARASHTRA, CODE: 27
+                381/A NARROTTAM WADI, ROOM N: 14-A, 1ST FLOOR
+                KALBADEVI ROAD, MUMBAI-400002, MAHARASHTRA,
+                CODE: 27
               </span>
             </div>
 
             <div className="flex items-center space-x-2 transition-colors">
               <Phone className="w-4 h-4 flex-shrink-0" />
-              <span className="hover:text-green-700">+91 8080113377</span>
+
+              <span className="hover:text-green-700">
+                +91 8080113377
+              </span>
             </div>
 
             <div className="flex items-center space-x-2 transition-colors">
               <Mail className="w-4 h-4 flex-shrink-0" />
+
               <span className="hover:text-green-700">
                 sgfragrance@hotmail.com
               </span>
@@ -144,7 +176,8 @@ const Footer = () => {
 
       {/* Bottom */}
       <div className="border-t border-gray-200 mt-8 pt-4 pb-4 text-center text-gray-500 text-xs">
-        © {new Date().getFullYear()} SG Fragrance House. All rights reserved.
+        © {new Date().getFullYear()} SG Fragrance House.
+        All rights reserved.
       </div>
     </footer>
   );

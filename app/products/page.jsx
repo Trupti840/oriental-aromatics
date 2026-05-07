@@ -3,159 +3,142 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
-const categories = [
-  {
-    id: "fine-fragrances",
-    title: "Fine Fragrances",
-    desc: "Luxury perfumes crafted with premium ingredients.",
-    image: "/images/products/frangrance_product.png",
-  },
-  {
-    id: "air-care",
-    title: "Air Care",
-    desc: "Refreshing air solutions to elevate your space.",
-    image: "/images/products/aircare_product.jpg",
-  },
-  {
-    id: "personal-care",
-    title: "Personal Care",
-    desc: "Daily essentials with signature fragrance touch.",
-    image: "/images/products/personal_product.jpg",
-  },
-  {
-    id: "home-care",
-    title: "Home Care",
-    desc: "Smart cleaning with premium fragrance blends.",
-    image: "/images/products/homecare_product.jpg",
-  },
+const sections = [
+ {
+   id: "fine-fragrances",
+   title: "Fine Fragrances",
+   image: "/images/products/frangrance_product.png",
+   desc: "Our fine fragrances embody the art of perfumery—crafted for elegance, long-lasting performance, and unforgettable impressions.",
+   items: ["Spray Perfumes", "Roll-ons / Attars", "Body Mists"],
+ },
+ {
+   id: "air-care",
+   title: "Air Care",
+   image: "/images/aircare.jpg",
+   desc: "Transform your surroundings with fragrances designed to create a soothing and refreshing ambiance.",
+   items: ["Candles", "Reed Diffusers", "Incense Sticks", "Bakhoor"],
+ },
+ {
+   id: "personal-care",
+   title: "Personal Care",
+   image: "/images/personalcare.jpg",
+   desc: "Gentle yet luxurious products crafted for daily self-care with a signature fragrance touch.",
+   items: ["Cosmetics", "Skin Care", "Hair Care", "Beauty Soaps"],
+ },
+ {
+   id: "home-care",
+   title: "Home Care",
+   image: "/images/homecare.jpg",
+   desc: "Make everyday cleaning refreshing with products that combine performance and fragrance.",
+   items: ["Laundry Care", "Floor Cleaners", "Bathroom Care", "Handwash"],
+ },
 ];
 
 export default function ProductsPage() {
-  return (
-    <div className="bg-gradient-to-br from-green-50 via-white to-green-100 min-h-screen">
-      <Navbar />
+ const searchParams = useSearchParams();
+ const section = searchParams.get("section");
 
-      <main className="pt-28 pb-20 px-6">
-        {/* Heading */}
-        <div className="text-center mb-20">
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-bold text-gray-900 tracking-tight"
-          >
-            Our Collection
-          </motion.h1>
+ // ✅ Scroll + premium shadow highlight
+ useEffect(() => {
+   if (!section) return;
 
-          <p className="mt-4 text-gray-600 max-w-xl mx-auto text-lg">
-            Crafted elegance. Designed to elevate your senses.
-          </p>
-        </div>
+   const timer = setTimeout(() => {
+     const el = document.getElementById(section);
+     if (!el) return;
 
-        {/* GRID */}
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {categories.map((cat, index) => (
-            <Card3D key={cat.id} cat={cat} index={index} />
-          ))}
-        </div>
-      </main>
+     el.scrollIntoView({
+       behavior: "smooth",
+       block: "center",
+     });
 
-      <Footer />
-    </div>
-  );
-}
+     el.classList.add("active-section");
 
-function Card3D({ cat, index }) {
-  const [flipped, setFlipped] = useState(false);
-  const tiltRef = useRef(null);
+     setTimeout(() => {
+       el.classList.remove("active-section");
+     }, 2000);
+   }, 400);
 
-  const handleMouseMove = (e) => {
-    if (flipped) return;
+   return () => clearTimeout(timer);
+ }, [section]);
 
-    const rect = tiltRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+ return (
+   <div className="bg-gradient-to-br from-[#f7fdf9] via-white to-[#eef7f1] min-h-screen">
+     <Navbar />
 
-    const rotateX = -(y - rect.height / 2) / 18;
-    const rotateY = (x - rect.width / 2) / 18;
+     <main className="pt-28 pb-24 px-6 max-w-6xl mx-auto">
+       {/* HEADER */}
+       <div className="text-center mb-24">
+         <motion.h1
+           initial={{ opacity: 0, y: 30 }}
+           animate={{ opacity: 1, y: 0 }}
+           className="text-5xl md:text-7xl font-semibold tracking-tight text-gray-900"
+         >
+           Our Products
+         </motion.h1>
 
-    tiltRef.current.style.transform = `
-      perspective(1200px)
-      rotateX(${rotateX}deg)
-      rotateY(${rotateY}deg)
-      scale(1.04)
-    `;
-  };
+         <p className="mt-6 text-gray-500 max-w-xl mx-auto text-lg leading-relaxed">
+           Discover a curated collection designed to elevate your everyday
+           lifestyle with elegance, fragrance, and purpose.
+         </p>
+       </div>
 
-  const resetTilt = () => {
-    tiltRef.current.style.transform = `
-      perspective(1200px)
-      rotateX(0deg)
-      rotateY(0deg)
-      scale(1)
-    `;
-  };
+       {/* ✅ PREMIUM SINGLE CARD SECTIONS */}
+       <div className="space-y-24">
+         {sections.map((sec, i) => (
+           <motion.div
+             key={sec.id}
+             id={sec.id}
+             initial={{ opacity: 0, y: 80 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.6, delay: i * 0.1 }}
+             className="relative group"
+           >
+             <div className="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500">
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 80 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.2 }}
-      className="relative h-[420px] perspective"
-    >
-      {/* OUTER → TILT */}
-      <div
-        ref={tiltRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={resetTilt}
-        className="w-full h-full transition-transform duration-300 ease-out"
-      >
-        {/* INNER → FLIP */}
-        <div
-          className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] ${
-            flipped ? "rotate-y-180" : ""
-          }`}
-          style={{ transformOrigin: "center" }}
-        >
-          {/* FRONT */}
-          <div className="absolute w-full h-full backface-hidden rounded-3xl overflow-hidden shadow-2xl">
-            <img src={cat.image} className="w-full h-full object-cover" />
+               {/* IMAGE */}
+               <img
+                 src={sec.image}
+                 className="w-full h-[380px] md:h-[480px] object-cover group-hover:scale-105 transition duration-700"
+               />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+               {/* DARK OVERLAY */}
+               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-            <div className="absolute bottom-0 p-6 text-white">
-              <h2 className="text-3xl font-semibold">{cat.title}</h2>
+               {/* CONTENT */}
+               <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12 text-white">
+                 <h2 className="text-3xl md:text-5xl font-semibold mb-4">
+                   {sec.title}
+                 </h2>
 
-              <button
-                onClick={() => setFlipped(true)}
-                className="mt-4 px-6 py-2 bg-white text-black rounded-full hover:bg-green-200 transition"
-              >
-                Explore →
-              </button>
-            </div>
-          </div>
+                 <p className="max-w-xl text-gray-200 mb-6 leading-relaxed">
+                   {sec.desc}
+                 </p>
 
-          {/* BACK */}
-          <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-white rounded-3xl shadow-2xl flex flex-col justify-center items-center p-6 text-center">
-            <h2 className="text-2xl font-bold mb-4">{cat.title}</h2>
+                 {/* ITEMS */}
+                 <div className="flex flex-wrap gap-3">
+                   {sec.items.map((item, idx) => (
+                     <span
+                       key={idx}
+                       className="px-4 py-2 text-sm bg-white/10 backdrop-blur-md border border-white/20 rounded-full hover:bg-white/20 transition"
+                     >
+                       {item}
+                     </span>
+                   ))}
+                 </div>
+               </div>
 
-            <p className="text-gray-600 mb-6">{cat.desc}</p>
+               {/* GLOW EFFECT */}
+               <div className="absolute -inset-1 bg-green-300/10 blur-2xl opacity-0 group-hover:opacity-100 transition duration-700 rounded-3xl" />
+             </div>
+           </motion.div>
+         ))}
+       </div>
+     </main>
 
-            <button className="px-6 py-2 bg-green-600 text-white rounded-full hover:bg-green-800 transition">
-              View Products
-            </button>
-
-            <button
-              onClick={() => setFlipped(false)}
-              className="mt-4 text-sm text-gray-500 underline"
-            >
-              ← Back
-            </button>
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
+     <Footer />
+   </div>
+ );
 }
