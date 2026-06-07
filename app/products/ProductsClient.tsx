@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 const sections = [
   {
@@ -69,6 +70,7 @@ export default function ProductsClient() {
       <Navbar />
 
       <main className="pt-28 pb-24 px-6 max-w-6xl mx-auto">
+        {/* Heading */}
         <div className="text-center mb-24">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -78,12 +80,13 @@ export default function ProductsClient() {
             Our Products
           </motion.h1>
 
-          <p className="mt-6 text-gray-500 max-w-xl mx-auto text-lg leading-relaxed">
+          <p className="mt-6 text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
             Discover a curated collection designed to elevate your everyday
             lifestyle with elegance, fragrance, and purpose.
           </p>
         </div>
 
+        {/* Categories */}
         <div className="space-y-24">
           {sections.map((sec, i) => (
             <motion.div
@@ -92,39 +95,70 @@ export default function ProductsClient() {
               initial={{ opacity: 0, y: 80 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
+              viewport={{ once: true }}
               className="relative group"
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500">
-                <img
-                  src={sec.image}
-                  className="w-full h-[380px] md:h-[480px] object-cover group-hover:scale-105 transition duration-700"
-                />
+              {/* Entire Card Clickable */}
+              <Link href={`/products/${sec.id}`}>
+                <div className="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500 cursor-pointer">
+                  {/* Image */}
+                  <img
+                    src={sec.image}
+                    alt={sec.title}
+                    className="w-full h-[380px] md:h-[480px] object-cover group-hover:scale-105 transition duration-700"
+                  />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent" />
 
-                <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12 text-white">
-                  <h2 className="text-3xl md:text-5xl font-semibold mb-4">
-                    {sec.title}
-                  </h2>
+                  {/* Content */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12 text-white">
+                    <h2 className="text-3xl md:text-5xl font-semibold mb-4">
+                      {sec.title}
+                    </h2>
 
-                  <p className="max-w-xl text-gray-200 mb-6 leading-relaxed">
-                    {sec.desc}
-                  </p>
+                    <p className="max-w-2xl text-gray-200 mb-6 leading-relaxed text-sm md:text-base">
+                      {sec.desc}
+                    </p>
 
-                  <div className="flex flex-wrap gap-3">
-                    {sec.items.map((item, idx) => (
-                      <span
-                        key={idx}
-                        className="px-4 py-2 text-sm bg-white/10 backdrop-blur-md border border-white/20 rounded-full hover:bg-white/20 transition"
-                      >
-                        {item}
+                    {/* Items */}
+                    <div className="flex flex-wrap gap-3">
+                      {sec.items.map((item, idx) => (
+                        <span
+                          key={idx}
+                          className="px-4 py-2 text-sm bg-white/10 backdrop-blur-md border border-white/20 rounded-full hover:bg-[#308D46] hover:border-[#308D46] transition-all duration-300"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Button */}
+                    <div className="mt-8">
+                      <span className="inline-flex items-center gap-2 bg-[#308D46] hover:bg-[#26753a] px-6 py-3 rounded-full font-medium transition">
+                        Explore Category
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-4 h-4"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
                       </span>
-                    ))}
+                    </div>
                   </div>
-                </div>
 
-                <div className="absolute -inset-1 bg-green-300/10 blur-2xl opacity-0 group-hover:opacity-100 transition duration-700 rounded-3xl" />
-              </div>
+                  {/* Glow Effect */}
+                  <div className="absolute -inset-1 bg-[#308D46]/10 blur-3xl opacity-0 group-hover:opacity-100 transition duration-700 rounded-3xl" />
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
