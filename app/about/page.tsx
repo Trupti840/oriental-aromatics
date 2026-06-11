@@ -5,12 +5,7 @@
  import { motion, useScroll, useTransform } from "framer-motion";
  import { useRef } from "react";
  import Image from "next/image";
- import { Cinzel } from "next/font/google";
-
-const cinzel = Cinzel({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
+ 
  export default function AboutPage() {
    const ref = useRef(null);
    // Smooth parallax (reduced for better UX)
@@ -25,7 +20,7 @@ const cinzel = Cinzel({
        {/* HERO SECTION */}
            <section className="relative h-screen w-full overflow-hidden">
        {/* Background Images */}
-       <div className="absolute inset-0">
+       <div className="absolute inset-0 bg-white/5">
          {/* Desktop Image */}
          <Image
            src="/images/hero.jpg"
@@ -45,7 +40,7 @@ const cinzel = Cinzel({
          />
  
          {/* Light Overlay */}
-         <div className="absolute inset-0"></div>
+         <div className="absolute inset-0 bg-white/5"></div>
        </div>
  
        {/* Hero Content */}
@@ -57,12 +52,12 @@ const cinzel = Cinzel({
            transition={{ duration: 0.8 }}
          >
            {/* Heading */}
-           <h1 className="{`${cinzel.className} text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-black leading-tight">
+           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-black leading-tight" style={{ fontFamily: "Times New Roman, serif" }}>
              A Legacy of Fragrance Excellence Since 1987
            </h1>
  
            {/* Description */}
-            <p className="{`${cinzel.className} mt-6 text-base md:text-lg text-[#2A2A2A] leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-[#2A2A2A] leading-relaxed" style={{ fontFamily: "Times New Roman, serif" }}>
               Founded by Mukesh Wadera, SG Fragrance House has been crafting premium
               fragrance concentrates, perfume oils, and aroma solutions for over
               three decades, blending traditional expertise with modern innovation.

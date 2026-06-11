@@ -22,9 +22,8 @@ export const metadata: Metadata = {
   ],
 
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/logo.png",
+    icon: "/icon.png",
+    apple: "/icon.png",
   },
 
   openGraph: {
@@ -62,8 +61,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "SG Fragrance House",
-              url: "https://yourdomain.com",
-              logo: "https://yourdomain.com/logo.png",
+              url: "https://sgfrag.com",
+              logo: "https://sgfrag.com/logo.png",
             }),
           }}
         />

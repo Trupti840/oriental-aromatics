@@ -2,18 +2,12 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Cinzel } from "next/font/google";
-
-const cinzel = Cinzel({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
 
 const Hero = () => {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Images */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-white/5">
         {/* Desktop Image */}
         <Image
           src="/images/hero.jpg"
@@ -33,7 +27,7 @@ const Hero = () => {
         />
 
         {/* Light Overlay */}
-        <div className="absolute inset-0"></div>
+        <div className="absolute inset-0 bg-white/5"></div>
       </div>
 
       {/* Hero Content */}
@@ -45,12 +39,12 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           {/* Heading */}
-          <h1 className="{`${cinzel.className} text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#111111] leading-[0.95]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#111111] leading-[0.95]" style={{ fontFamily: "Times New Roman, serif" }}>
             Crafting Sensory <br /> Experiences
           </h1>
 
           {/* Description */}
-          <p className="{`${cinzel.className} mt-6 text-base md:text-lg text-[#2A2A2A] leading-relaxed max-w-xl mx-auto md:mx-0">
+          <p className="mt-6 text-base md:text-lg text-[#2A2A2A] leading-relaxed max-w-xl mx-auto md:mx-0" style={{ fontFamily: "Times New Roman, serif" }}>
             Fragrances, flavours, and aroma chemicals designed to inspire
             <br className="hidden md:block" />
             emotions and elevate everyday experiences.
