@@ -7,7 +7,7 @@ import { IoClose } from "react-icons/io5";
 export default function WhatsAppFloat() {
   const [open, setOpen] = useState(false);
 
-  const phoneNumber = "919999999999"; // replace
+  const phoneNumber = "8080113377";
   const message = "Hi, I need info";
 
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(

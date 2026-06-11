@@ -27,7 +27,7 @@ const Hero = () => {
         />
 
         {/* Light Overlay */}
-        <div className="absolute inset-0 bg-white/25"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/5 to-transparent"></div>
       </div>
 
       {/* Hero Content */}
@@ -39,12 +39,12 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           {/* Heading */}
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-black leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#111111] leading-[0.95]">
             Crafting Sensory <br /> Experiences
           </h1>
 
           {/* Description */}
-          <p className="mt-5 text-base sm:text-lg text-gray-700 leading-relaxed">
+          <p className="mt-6 text-base md:text-lg text-[#2A2A2A] leading-relaxed max-w-xl mx-auto md:mx-0">
             Fragrances, flavours, and aroma chemicals designed to inspire
             <br className="hidden md:block" />
             emotions and elevate everyday experiences.
@@ -57,8 +57,7 @@ const Hero = () => {
                 const section = document.getElementById("explore-section");
                 section?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="px-8 py-3 bg-green-600 text-white rounded-full shadow-md hover:bg-green-800 hover:scale-105 transition-all duration-300"
-            >
+              className="px-8 py-4 bg-[#1B5E20] text-white rounded-full font-medium shadow-lg hover:bg-[#154518] hover:-translate-y-1 transition-all duration-300">
               Explore Collection
             </button>
           </div>

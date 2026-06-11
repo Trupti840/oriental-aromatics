@@ -149,9 +149,8 @@ const Footer = () => {
               <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
 
               <span className="hover:text-green-700">
-                381/A NARROTTAM WADI, ROOM N: 14-A, 1ST FLOOR
-                KALBADEVI ROAD, MUMBAI-400002, MAHARASHTRA,
-                CODE: 27
+                381/A NAROTTAM WADI, 14/A, 1ST FLOOR
+                KALBADEVI ROAD, MUMBAI-400002
               </span>
             </div>
 

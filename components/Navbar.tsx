@@ -3,6 +3,13 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Cinzel } from "next/font/google";
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+});
+
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -27,43 +34,27 @@ const Navbar = () => {
       <div className="w-full px-6 md:px-12 lg:px-20 flex justify-between items-center">
         {/* Logo + Brand */}
         <Link href="/" className="flex items-center space-x-3 cursor-pointer">
-          <img
-            src="/images/logo.png"
-            alt="logo"
-            className="w-10 h-10 object-contain contrast-125"
-          />
-
-          <h1 className="text-sm md:text-base font-semibold tracking-widest text-black">
+          <img src="/images/logo.png" alt="logo" className="w-12 h-12 md:w-14 md:h-14 object-contain"/>
+          <h1 className={`${cinzel.className} text-lg md:text-2xl font-bold tracking-[0.12em] text-[#111111]`}>
             SG FRAGRANCE HOUSE
           </h1>
         </Link>
 
         {/* Navigation */}
-        <nav className="hidden md:flex space-x-10">
-          <Link href="/" className="text-sm text-black hover:text-green-700">
-            Home
-          </Link>
-
-          <Link
-            href="/about"
-            className="text-sm text-black hover:text-green-700"
-          >
-            About
-          </Link>
-
-          <Link
-            href="/products"
-            className="text-sm text-black hover:text-green-700"
-          >
-            Products
-          </Link>
-
-          <Link
-            href="/contact"
-            className="text-sm text-black hover:text-green-700"
-          >
-            Contact
-          </Link>
+        <nav className="hidden md:flex items-center space-x-12">
+          {[
+            { name: "HOME", href: "/" },
+            { name: "ABOUT", href: "/about" },
+            { name: "PRODUCTS", href: "/products" },
+            { name: "CONTACT", href: "/contact" },
+          ].map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="relative text-[13px] font-medium tracking-[0.12em] text-[#111111] transition-all duration-300 hover:text-[#C9A227] after:absolute after:left-0 after:-bottom-2 after:h-[1px] after:w-0 after:bg-[#C9A227] after:transition-all after:duration-300 hover:after:w-full">
+              {item.name}
+            </Link>
+          ))}
         </nav>
       </div>
     </header>
