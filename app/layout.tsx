@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-// @ts-ignore
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 
@@ -9,7 +8,13 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://sgfrag.com"),
 
-  title: "SG Fragrance House",
+  title: {
+    default: "SG Fragrance House",
+    template: "%s | SG Fragrance House",
+  },
+
+  applicationName: "SG Fragrance House",
+
   description:
     "Leading manufacturer of aroma chemicals, fragrances, flavours and camphor products.",
 
@@ -21,11 +26,16 @@ export const metadata: Metadata = {
     "SG Fragrance House",
   ],
 
-  // ✅ FIXED ICONS (important for Google favicon)
+  // ✅ Favicon setup
   icons: {
-    icon: "/favicon.png", // <-- change this
+    icon: "/favicon.png",
     shortcut: "/favicon.png",
     apple: "/favicon.png",
+  },
+
+  // ✅ Canonical (IMPORTANT for SEO)
+  alternates: {
+    canonical: "https://sgfrag.com",
   },
 
   openGraph: {
@@ -36,7 +46,7 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: "https://sgfrag.com/logo.png", // ✅ FULL URL (important)
+        url: "https://sgfrag.com/logo.png",
         width: 1200,
         height: 630,
         alt: "SG Fragrance House",
@@ -56,7 +66,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* ✅ MOVE SCRIPT INTO HEAD (IMPORTANT FIX) */}
+        {/* ✅ Website Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "SG Fragrance House",
+              alternateName: "SG Frag",
+              url: "https://sgfrag.com",
+            }),
+          }}
+        />
+
+        {/* ✅ Organization Schema (Logo for Google) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -66,6 +90,10 @@ export default function RootLayout({
               name: "SG Fragrance House",
               url: "https://sgfrag.com",
               logo: "https://sgfrag.com/logo.png",
+              sameAs: [
+                "https://www.instagram.com/YOUR_REAL_PAGE",
+                "https://www.linkedin.com/company/YOUR_REAL_PAGE",
+              ],
             }),
           }}
         />
