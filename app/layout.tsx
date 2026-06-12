@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+// @ts-ignore
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 
@@ -9,7 +10,6 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://sgfrag.com"),
 
   title: "SG Fragrance House",
-
   description:
     "Leading manufacturer of aroma chemicals, fragrances, flavours and camphor products.",
 
@@ -21,9 +21,11 @@ export const metadata: Metadata = {
     "SG Fragrance House",
   ],
 
+  // ✅ FIXED ICONS (important for Google favicon)
   icons: {
-    icon: "/icon.png",
-    apple: "/icon.png",
+    icon: "/favicon.png", // <-- change this
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
 
   openGraph: {
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: "/logo.png",
+        url: "https://sgfrag.com/logo.png", // ✅ FULL URL (important)
         width: 1200,
         height: 630,
         alt: "SG Fragrance House",
@@ -53,7 +55,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <head>
+        {/* ✅ MOVE SCRIPT INTO HEAD (IMPORTANT FIX) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -66,6 +69,9 @@ export default function RootLayout({
             }),
           }}
         />
+      </head>
+
+      <body className={inter.className}>
         <Toaster position="top-right" />
         {children}
       </body>
