@@ -1,12 +1,5 @@
 import Link from "next/link";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Facebook,
-  Twitter,
-  Linkedin,
-} from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
 
 const productLinks = [
   {
@@ -31,7 +24,6 @@ const Footer = () => {
   return (
     <footer className="bg-white text-black border-t border-[#e5e5e5] pt-10 pb-0 px-4 md:px-8 lg:px-16">
       <div className="w-full pl-0 pr-[20px] md:pr-[40px] grid md:grid-cols-4 gap-8">
-        
         {/* Brand */}
         <div>
           <div className="flex items-center space-x-3 mb-4">
@@ -41,9 +33,7 @@ const Footer = () => {
               </span>
             </div>
 
-            <h3 className="text-lg font-bold">
-              SG FRAGRANCE HOUSE
-            </h3>
+            <h3 className="text-lg font-bold">SG FRAGRANCE HOUSE</h3>
           </div>
 
           <p className="text-gray-600 text-sm leading-relaxed mb-4">
@@ -72,10 +62,7 @@ const Footer = () => {
 
           <ul className="space-y-2 text-gray-600 text-sm">
             <li>
-              <Link
-                href="/"
-                className="hover:text-green-700 transition-colors"
-              >
+              <Link href="/" className="hover:text-green-700 transition-colors">
                 Home
               </Link>
             </li>
@@ -149,25 +136,21 @@ const Footer = () => {
               <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
 
               <span className="hover:text-green-700">
-                381/A NAROTTAM WADI, 14/A, 1ST FLOOR
-                KALBADEVI ROAD, MUMBAI-400002
+                381/A NAROTTAM WADI, 14/A, 1ST FLOOR KALBADEVI ROAD,
+                MUMBAI-400002
               </span>
             </div>
 
             <div className="flex items-center space-x-2 transition-colors">
               <Phone className="w-4 h-4 flex-shrink-0" />
 
-              <span className="hover:text-green-700">
-                +91 8080113377
-              </span>
+              <span className="hover:text-green-700">+91 8080113377</span>
             </div>
 
             <div className="flex items-center space-x-2 transition-colors">
               <Mail className="w-4 h-4 flex-shrink-0" />
 
-              <span className="hover:text-green-700">
-                sgfragrance@hotmail.com
-              </span>
+              <span className="hover:text-green-700">info@sgfrag.com</span>
             </div>
           </div>
         </div>
@@ -175,8 +158,7 @@ const Footer = () => {
 
       {/* Bottom */}
       <div className="border-t border-gray-200 mt-8 pt-4 pb-4 text-center text-gray-500 text-xs">
-        © {new Date().getFullYear()} SG Fragrance House.
-        All rights reserved.
+        © {new Date().getFullYear()} SG Fragrance House. All rights reserved.
       </div>
     </footer>
   );

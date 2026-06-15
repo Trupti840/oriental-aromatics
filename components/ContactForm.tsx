@@ -70,7 +70,6 @@ const ContactForm = () => {
       className="py-24 bg-gradient-to-br from-white via-green-50 to-white"
     >
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center px-6">
-
         {/* LEFT SIDE */}
         <motion.div
           initial={{ opacity: 0, x: -80 }}
@@ -96,7 +95,7 @@ const ContactForm = () => {
             >
               <Icon className="w-6 h-6 text-green-600" />
               <span className="text-gray-700">
-                {i === 0 && "sgfragrance@hotmail.com"}
+                {i === 0 && "info@sgfrag.com"}
                 {i === 1 && "+91 8080113377"}
                 {i === 2 && "Mumbai, Maharashtra"}
               </span>
@@ -124,9 +123,11 @@ const ContactForm = () => {
                 className="peer w-full border-b-2 border-gray-300 focus:border-green-600 outline-none py-2 placeholder-transparent"
                 placeholder={field}
               />
-              <label className="absolute left-0 top-2 text-gray-500 text-sm transition-all 
+              <label
+                className="absolute left-0 top-2 text-gray-500 text-sm transition-all 
                 peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm 
-                peer-focus:-top-3 peer-focus:text-xs peer-focus:text-green-600">
+                peer-focus:-top-3 peer-focus:text-xs peer-focus:text-green-600"
+              >
                 {field === "firstName" && "First Name"}
                 {field === "lastName" && "Last Name"}
                 {field === "email" && "Email"}
