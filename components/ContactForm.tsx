@@ -123,11 +123,7 @@ const ContactForm = () => {
                 className="peer w-full border-b-2 border-gray-300 focus:border-green-600 outline-none py-2 placeholder-transparent"
                 placeholder={field}
               />
-              <label
-                className="absolute left-0 top-2 text-gray-500 text-sm transition-all 
-                peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm 
-                peer-focus:-top-3 peer-focus:text-xs peer-focus:text-green-600"
-              >
+              <label className={`absolute left-0 transition-all duration-200 ${ formData[field as keyof typeof formData]? "-top-3 text-xs text-green-600" : "top-2 text-sm text-gray-500"}`} >
                 {field === "firstName" && "First Name"}
                 {field === "lastName" && "Last Name"}
                 {field === "email" && "Email"}
